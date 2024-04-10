@@ -108,10 +108,10 @@ int ESP32PWM::allocatenext(double freq)
 					if ((myTimerNumber >= 0) && (!ChannelUsed[myTimerNumber]))
 					{
 						pwmChannel = myTimerNumber;
-						// 						Serial.println(
-						// 							"PWM on ledc channel #" + String(pwmChannel)
-						// 									+ " using 'timer " + String(timerNum)
-						// 									+ "' to freq " + String(freq) + "Hz");
+						// Serial.println(
+						// "PWM on ledc channel #" + String(pwmChannel)
+						// + " using 'timer " + String(timerNum)
+						// + "' to freq " + String(freq) + "Hz");
 						ChannelUsed[pwmChannel] = this;
 						timerCount[timerNum]++;
 						PWMCount++;
@@ -122,10 +122,10 @@ int ESP32PWM::allocatenext(double freq)
 			}
 			else
 			{
-				//				if(timerFreqSet[i]>0)
-				//					Serial.println("Timer freq mismatch target="+String(freq)+" on timer "+String(i)+" was "+String(timerFreqSet[i]));
-				//				else
-				//					Serial.println("Timer out of channels target="+String(freq)+" on timer "+String(i)+" was "+String(timerCount[i]));
+				//if(timerFreqSet[i]>0)
+				//	Serial.println("Timer freq mismatch target="+String(freq)+" on timer "+String(i)+" was "+String(timerFreqSet[i]));
+				//else
+				//	Serial.println("Timer out of channels target="+String(freq)+" on timer "+String(i)+" was "+String(timerCount[i]));
 			}
 		}
 	}
@@ -223,7 +223,7 @@ void ESP32PWM::adjustFrequency(double freq, double dutyScaled)
 			if (ChannelUsed[pwm]->myFreq != freq)
 			{
 				ChannelUsed[pwm]->adjustFrequencyLocal(freq,
-													   ChannelUsed[pwm]->getDutyScaled());
+				ChannelUsed[pwm]->getDutyScaled());
 			}
 		}
 	}
@@ -238,7 +238,7 @@ double ESP32PWM::writeTone(double freq)
 			if (ChannelUsed[pwm]->myFreq != freq)
 			{
 				ChannelUsed[pwm]->adjustFrequencyLocal(freq,
-													   ChannelUsed[pwm]->getDutyScaled());
+				ChannelUsed[pwm]->getDutyScaled());
 			}
 			write(1 << (resolutionBits - 1)); // writeScaled(0.5);
 		}
